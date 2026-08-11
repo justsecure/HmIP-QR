@@ -22,7 +22,12 @@
                 }
             } else {
                 sgtin = sgtin + AddHyphens(groups[2], 4);
-                key = key + AddHyphens(BaseConvert(groups[4], "0123456789ABCDEF", "0123456789ABCEFGHJKLMNPQRSTUWXYZ"), 5, true);
+                                const convertedKey = BaseConvert(
+                     groups[4],
+                     "0123456789ABCDEF",
+                     "0123456789ABCEFGHJKLMNPQRSTUWXYZ"
+                  ).padStart(26, "0");
+                key += AddHyphens(convertedKey, 5, true);                 
             };
             sgtin_out.innerHTML = sgtin;
             key_out.innerHTML = key;
